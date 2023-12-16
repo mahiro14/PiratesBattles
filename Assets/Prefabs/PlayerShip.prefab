@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8651909549795173717}
   - component: {fileID: 7830965166859022475}
   - component: {fileID: 4900895422903246013}
+  - component: {fileID: 4957150607941681321}
   m_Layer: 3
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,12 +72,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 30, y: 50, z: 70}
+  m_Size: {x: 20, y: 50, z: 60}
   m_Center: {x: 0, y: 0, z: 5}
+--- !u!54 &4957150607941681321
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61435581039068717}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &165442279170354346
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +116,6 @@ GameObject:
   - component: {fileID: 3363996226617043827}
   - component: {fileID: 7922910911050057367}
   - component: {fileID: 6650142711740951942}
-  - component: {fileID: 383797777911494664}
   m_Layer: 3
   m_Name: StylShip_Anchor
   m_TagString: Untagged
@@ -161,27 +188,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &383797777911494664
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165442279170354346}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.8623457, y: 2.7815523, z: 1.095534}
-  m_Center: {x: 0.06199737, y: 0.6289091, z: -0.022426307}
 --- !u!1 &399624343256645041
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +863,6 @@ GameObject:
   - component: {fileID: 242911363186952345}
   - component: {fileID: 3600232615998857164}
   - component: {fileID: 4412835285684564913}
-  - component: {fileID: 7077945906694522041}
   m_Layer: 3
   m_Name: StylShip_Rudder
   m_TagString: Untagged
@@ -930,27 +935,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7077945906694522041
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519347254371710179}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.42646447, y: 4.17366, z: 1.8081442}
-  m_Center: {x: 0.000000029802322, y: -1.5068502, z: -0.8863209}
 --- !u!1 &1621331340611163205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1527,6 @@ GameObject:
   - component: {fileID: 4909007602862604411}
   - component: {fileID: 3890193211443070982}
   - component: {fileID: 2104997848537804070}
-  - component: {fileID: 2869612703966586376}
   m_Layer: 3
   m_Name: StylShip_Flag1
   m_TagString: Untagged
@@ -1616,27 +1599,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2869612703966586376
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3183810698663328117}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.46113753, y: 1.28439, z: 3.7960062}
-  m_Center: {x: 0.0024809837, y: -0.00000017881393, z: -0.0000007748604}
 --- !u!1 &3453613404550777707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,7 +1859,6 @@ GameObject:
   - component: {fileID: 1500714121365908185}
   - component: {fileID: 7619011757672555944}
   - component: {fileID: 260980742352189842}
-  - component: {fileID: 3565978790251585778}
   m_Layer: 3
   m_Name: StylShip_Door2
   m_TagString: Untagged
@@ -1970,27 +1931,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3565978790251585778
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3814992076704334920}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.7789924, y: 3.3887968, z: 0.16156536}
-  m_Center: {x: -0.8113849, y: 0, z: -0.000000048428774}
 --- !u!1 &3843609495035002686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,7 +2431,6 @@ GameObject:
   - component: {fileID: 8831697653082724165}
   - component: {fileID: 861465374794714652}
   - component: {fileID: 5469850230990337610}
-  - component: {fileID: 6327221444211944042}
   m_Layer: 3
   m_Name: StylShip_Flag2
   m_TagString: Untagged
@@ -2564,27 +2503,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6327221444211944042
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5213905971486548075}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.4585281, y: 1.28439, z: 3.7960062}
-  m_Center: {x: -0.0011741519, y: -0.00000017881393, z: -0.00000071525574}
 --- !u!1 &5360578333960213900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,7 +2514,6 @@ GameObject:
   - component: {fileID: 3304778961596416325}
   - component: {fileID: 3307067744836191826}
   - component: {fileID: 7601222450529598024}
-  - component: {fileID: 3706081677769579023}
   m_Layer: 3
   m_Name: StylShip_FloorMid
   m_TagString: Untagged
@@ -2669,27 +2586,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3706081677769579023
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5360578333960213900}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10.17037, y: 0.5709201, z: 15.84494}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5537899375632780039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,7 +2887,6 @@ GameObject:
   - component: {fileID: 3905975075781450036}
   - component: {fileID: 3366125803275445559}
   - component: {fileID: 8456634178095049308}
-  - component: {fileID: 5578696709975239774}
   m_Layer: 3
   m_Name: StylShip_MainFlag
   m_TagString: Untagged
@@ -3064,27 +2959,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5578696709975239774
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454012273165843994}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.6025529, y: 3.513004, z: 1.9640051}
-  m_Center: {x: 0.0032946318, y: 0, z: 0}
 --- !u!1 &7001684139227637349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,7 +3551,6 @@ GameObject:
   - component: {fileID: 6055062418759131175}
   - component: {fileID: 3840018594952881649}
   - component: {fileID: 8096064512586194035}
-  - component: {fileID: 6994326603544581891}
   m_Layer: 3
   m_Name: StylShip_Wheel
   m_TagString: Untagged
@@ -3750,27 +3623,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6994326603544581891
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278380721501654253}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.0553272, y: 2.0841532, z: 0.45162863}
-  m_Center: {x: -0.02889502, y: 0.00000035762787, z: 0.18653825}
 --- !u!1 &8396337457429669112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3782,7 +3634,6 @@ GameObject:
   - component: {fileID: 3744788271029964199}
   - component: {fileID: 2834519847795973630}
   - component: {fileID: 7957420658561294578}
-  - component: {fileID: 6323181947006587089}
   m_Layer: 3
   m_Name: StylShip_Door1
   m_TagString: Untagged
@@ -3855,27 +3706,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6323181947006587089
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8396337457429669112}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.7657881, y: 3.3887968, z: 0.16156551}
-  m_Center: {x: 0.8056214, y: 0, z: 0.000000018626451}
 --- !u!1 &8522070716034123408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,7 +3801,6 @@ GameObject:
   - component: {fileID: 752484958032360386}
   - component: {fileID: 5617447730167333773}
   - component: {fileID: 3813345965335876943}
-  - component: {fileID: 8171143479958298809}
   m_Layer: 6
   m_Name: Prism
   m_TagString: Untagged
@@ -3988,7 +3817,7 @@ Transform:
   m_GameObject: {fileID: 8965889124374068484}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -35, y: 5, z: -30}
+  m_LocalPosition: {x: -35, y: 45, z: -30}
   m_LocalScale: {x: 75, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4223,28 +4052,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8965889124374068484}
-  m_Mesh: {fileID: 0}
---- !u!64 &8171143479958298809
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8965889124374068484}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1001 &1212615208035861044
 PrefabInstance:

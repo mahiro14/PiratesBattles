@@ -30,4 +30,9 @@ public class GameMain : MonoBehaviour
         playerAttackSystem.OnUpdate();
         enemySpawnSystem.OnUpdate();
     }
+    
+    void FixedUpdate()
+    {
+        playerMoveSystem.OnFixUpdate();
+    }
 }

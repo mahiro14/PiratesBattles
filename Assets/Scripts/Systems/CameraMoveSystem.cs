@@ -26,26 +26,14 @@ public class CameraMoveSystem
 
     void MoveCamera()
     {
-        pos += camera.transform.forward * gameState.inputMove.Vertical * playerComponent.moveSpeed * Time.deltaTime;
-        pos += camera.transform.right * gameState.inputMove.Horizontal * playerComponent.moveSpeed * Time.deltaTime;
+        float ver = gameState.inputMove.Vertical;
+        float hor = gameState.inputMove.Horizontal;
 
-        if ( pos.x > 1840 )
-        {
-            pos.x = 1840;
-        }
-        else if ( pos.x < -1840 )
-        {
-            pos.x = -1840;
-        }
+        pos += camera.transform.forward * ver * playerComponent.moveSpeed * Time.deltaTime;
+        pos += camera.transform.right * hor * playerComponent.moveSpeed * Time.deltaTime;
 
-        if ( pos.z > 1840 )
-        {
-            pos.z = 1840;
-        }
-        else if( pos.z < -1840 )
-        {
-            pos.z = -1840;
-        }
+        pos.x = Mathf.Clamp(pos.x, -1840, 1840);
+        pos.z = Mathf.Clamp(pos.z, -1840, 1840);
 
         camera.transform.position = pos;
     }
