@@ -15,8 +15,9 @@ public class GameSystem
         CountTimer();
     }
 
-    private void CountTimer()
+    void CountTimer()
     {
-        gameState.timer += Time.deltaTime;
+        gameState.gameTimer += Time.deltaTime;
+        gameState.enemySpawnTimer += Time.deltaTime;
     }
 }

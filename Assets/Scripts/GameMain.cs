@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class GameMain : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class GameMain : MonoBehaviour
     private CameraMoveSystem cameraMoveSystem;
     private PlayerMoveSystem playerMoveSystem;
     private PlayerAttackSystem playerAttackSystem;
+    private EnemySpawnSystem enemySpawnSystem;
     
     void Start()
     {
@@ -19,6 +19,7 @@ public class GameMain : MonoBehaviour
         cameraMoveSystem = new CameraMoveSystem(gameState, gameEvent);
         playerMoveSystem = new PlayerMoveSystem(gameState, gameEvent);
         playerAttackSystem = new PlayerAttackSystem(gameState, gameEvent);
+        enemySpawnSystem = new EnemySpawnSystem(gameState, gameEvent);
     }
 
     void Update()
@@ -27,5 +28,6 @@ public class GameMain : MonoBehaviour
         cameraMoveSystem.OnUpdate();
         playerMoveSystem.OnUpdate();
         playerAttackSystem.OnUpdate();
+        enemySpawnSystem.OnUpdate();
     }
 }

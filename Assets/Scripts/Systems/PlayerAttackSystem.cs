@@ -18,10 +18,11 @@ public class PlayerAttackSystem
         ShootCannon();
     }
 
-    private void ShootCannon()
+    void ShootCannon()
     {
-        if ( gameState.timer < gameState.coolTime ) return;
-        if ( !((Input.GetMouseButton(0) && Input.mousePosition.x >= Screen.width/2) || Input.GetKeyDown("space")) ) return;
+        if ( playerComp.attackTimer < playerComp.coolTime ) return;
+        // if ( !((Input.GetMouseButton(0) && Input.mousePosition.x >= Screen.width/2) || Input.GetKeyDown("space")) ) return;
+        if ( !Input.GetKeyDown("space") ) return;
         // foreach (GameObject cannonMuzzle in gameState.cannonmuzzle)
         // {
         //     GameObject cannonBall = GameObject.Instantiate(gameState.cannonBallPrefab, )
@@ -29,6 +30,6 @@ public class PlayerAttackSystem
         GameObject cannonBall = GameObject.Instantiate(gameState.cannonBallPrefab, gameState.cannonMuzzle.transform.position, Quaternion.identity, gameState.cannonBallParent);
         Rigidbody ballRig = cannonBall.GetComponent<Rigidbody>();
         ballRig.AddForce(gameState.cannonMuzzle.transform.forward * playerComp.cannonSpeed);
-        gameState.timer = 0;
+        playerComp.attackTimer = 0;
     }
 }
