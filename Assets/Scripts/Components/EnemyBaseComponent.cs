@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBaseComponent : MonoBehaviour
 {
     public float hp;
     public float maxHp;
-    public float xp;
-    public float attack;
+    public Slider hpBar;
+    public float dropXp;
     public float moveSpeed;
 
+    // Attack
+    public float attack;
     public float attackTimer;
     public float coolTime;
 

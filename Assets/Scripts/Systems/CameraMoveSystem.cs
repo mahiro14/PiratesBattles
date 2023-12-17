@@ -14,8 +14,13 @@ public class CameraMoveSystem
         gameState = _gameState;
         gameEvent = _gameEvent;
 
+        gameEvent.startGame += Init;
+    }
+
+    void Init()
+    {
         camera = gameState.camera;
-        playerComponent = _gameState.player.GetComponent<PlayerComponent>();
+        playerComponent = gameState.player.GetComponent<PlayerComponent>();
         pos = camera.transform.position;
     }
 

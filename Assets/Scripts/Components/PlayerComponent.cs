@@ -7,8 +7,11 @@ public class PlayerComponent : MonoBehaviour
     public float xp;
     public float maxXp;
     public float moveSpeed;
+
+    public GameObject muzzle;
     public float cannonSpeed;
 
+    public float attack;
     public float attackTimer;
 
     public float coolTime;

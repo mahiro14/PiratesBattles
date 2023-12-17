@@ -22,6 +22,7 @@ public class GameState
     [Header("System")]
     public GameState gameState;
     public FloatingJoystick inputMove;
+    public Vector3 basePos = new Vector3(0f, 0f, 0f);
 
     [Header("Player")]
     public GameObject player;
@@ -30,11 +31,13 @@ public class GameState
 
     [Header("Enemy")]
     public GameObject enemy;
-    public List<GameObject> enemies;
+    public List<EnemyBaseComponent> enemies = new List<EnemyBaseComponent>();
+    public Transform parentEnemies;
     public float spawnCoolTime;
+    public float enemyCountLimit;
 
     [Header("Enemy Prefab")]
-    public List<GameObject> enemyPrefab;
+    public List<GameObject> enemyPrefab = new List<GameObject>();
     public GameObject redSlimePrefab;
     public GameObject blueTurtlePrefab;
 
@@ -48,7 +51,7 @@ public class GameState
     [Header("Timer")]
     public GameObject cannonBallPrefab;
     public Transform cannonBallParent;
-    public List<CannonBallComponent> cannonBalls;
+    public List<CannonBallComponent> cannonBalls = new List<CannonBallComponent>();
     public GameObject cannonMuzzle;
     public GameObject cannonMuzzlePrefab;
     public Transform cannonMuzzleParent;

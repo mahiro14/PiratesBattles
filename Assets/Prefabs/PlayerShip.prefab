@@ -50,13 +50,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 0
+  maxHp: 100
   xp: 0
-  maxXp: 0
+  maxXp: 10
   moveSpeed: 10
-  cannonSpeed: 1500
+  muzzle: {fileID: 9003870727703394590}
+  cannonSpeed: 1000
+  attack: 3
   attackTimer: 0
-  coolTime: 0
+  coolTime: 2
 --- !u!65 &4900895422903246013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,7 +74,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -103,7 +105,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 2
 --- !u!1 &165442279170354346
 GameObject:
@@ -3998,7 +4000,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14
+  m_VersionIndex: 20
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4121,5 +4123,10 @@ PrefabInstance:
 --- !u!4 &4895972598090872937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991456804502403677, guid: e4d94439c75f167418950d229cee22e4, type: 3}
+  m_PrefabInstance: {fileID: 1212615208035861044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9003870727703394590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7791297327020030762, guid: e4d94439c75f167418950d229cee22e4, type: 3}
   m_PrefabInstance: {fileID: 1212615208035861044}
   m_PrefabAsset: {fileID: 0}
