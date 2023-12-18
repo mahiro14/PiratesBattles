@@ -29,7 +29,7 @@ public class EnemyDamageSystem
         enemyComp.hp -= playerComp.attack;
         if (enemyComp.hp <= 0)
         {
-            playerComp.xp += enemyComp.dropXp;
+            gameEvent.getXp?.Invoke(enemyComp);
             gameEvent.onRemoveEnemy?.Invoke(enemyComp);
         }
         enemyComp.hpBar.value = enemyComp.hp;

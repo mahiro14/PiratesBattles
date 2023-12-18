@@ -75,13 +75,10 @@ public class CannonBallSystem
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                Debug.Log("Hit Enemy");
                 EnemyBaseComponent enemyComp = hit.collider.gameObject.GetComponent<EnemyBaseComponent>();
                 gameEvent.cannonHitEnemy?.Invoke(enemyComp);
                 gameEvent.onRemoveCannon?.Invoke(cannonComp);
             }
-            Debug.Log("No Hit Enemy");
-
         }
     }
 }

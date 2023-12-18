@@ -31,20 +31,48 @@ public class EnemyMoveSystem
 
     public void OnFixUpdate()
     {
-        MoveTowardsPlayer();
+        EnemyAction();
     }
 
     void ControlEnemyUI()
     {
-        enemyComp.hpBar.transform.LookAt(Camera.main.transform);
+        foreach(EnemyBaseComponent enemyComp in gameState.enemies)
+        {
+            enemyComp.hpBar.transform.LookAt(Camera.main.transform);
+        }
     }
 
-    void MoveTowardsPlayer()
+    void EnemyAction()
     {
-        // Raycastでぶつかってたら攻撃の挙動、なかったらプレイヤーに向かって速度0にしてから向かわせる
-        if (enemyComp.attackTimer < enemyComp.coolTime) return;
-        enemyComp.attackTimer = 0;
-        // EnemyHitPlayer();
+        foreach(EnemyBaseComponent enemyComp in gameState.enemies)
+        {
+            enemyComp.attackTimer += Time.deltaTime;
+            MoveTowardsPlayer(enemyComp);
+        }
+    }
+
+    void MoveTowardsPlayer(EnemyBaseComponent enemyComp)
+    {
+        enemyComp.transform.LookAt(playerComp.transform.position);
+        Vector3 direction = playerObj.transform.position - enemyComp.transform.position;
+        RaycastHit hit;
+        if (Physics.Raycast(enemyComp.transform.position, direction, out hit, 0.5f))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                EnemyCollision(enemyComp);
+                return;
+            }
+        }
         enemyComp.transform.position += enemyComp.transform.forward * enemyComp.moveSpeed * Time.deltaTime;
+    }
+
+    void EnemyCollision(EnemyBaseComponent enemyComp)
+    {
+        if (enemyComp.attackTimer > enemyComp.coolTime)
+        {
+            gameEvent.enemyAttack?.Invoke(enemyComp);
+            enemyComp.attackTimer = 0;
+        }
     }
 }

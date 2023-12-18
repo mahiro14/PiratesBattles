@@ -12,6 +12,7 @@ public class GameMain : MonoBehaviour
     private PlayerMoveSystem playerMoveSystem;
     private PlayerAttackSystem playerAttackSystem;
     private EnemySpawnSystem enemySpawnSystem;
+    private EnemyMoveSystem enemyMoveSystem;
     private CannonBallSystem cannonBallSystem;
     private EnemyDamageSystem enemyDamageSystem;
     
@@ -23,6 +24,7 @@ public class GameMain : MonoBehaviour
         playerMoveSystem = new PlayerMoveSystem(gameState, gameEvent);
         playerAttackSystem = new PlayerAttackSystem(gameState, gameEvent);
         enemySpawnSystem = new EnemySpawnSystem(gameState, gameEvent);
+        enemyMoveSystem = new EnemyMoveSystem(gameState, gameEvent);
         cannonBallSystem = new CannonBallSystem(gameState, gameEvent);
         enemyDamageSystem = new EnemyDamageSystem(gameState, gameEvent);
 
@@ -35,6 +37,7 @@ public class GameMain : MonoBehaviour
         playerSystem.OnUpdate();
         cameraMoveSystem.OnUpdate();
         playerMoveSystem.OnUpdate();
+        enemyMoveSystem.OnUpdate();
         playerAttackSystem.OnUpdate();
         enemySpawnSystem.OnUpdate();
     }
@@ -42,6 +45,7 @@ public class GameMain : MonoBehaviour
     void FixedUpdate()
     {
         playerMoveSystem.OnFixUpdate();
+        enemyMoveSystem.OnFixUpdate();
         cannonBallSystem.OnFixUpdate();
     }
 }
