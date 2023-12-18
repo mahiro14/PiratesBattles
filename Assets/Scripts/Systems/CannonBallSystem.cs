@@ -71,7 +71,7 @@ public class CannonBallSystem
     {
         RaycastHit hit;
         Debug.DrawRay(cannonComp.transform.position, cannonComp.transform.forward, Color.green);
-        if (Physics.Raycast(cannonComp.transform.position, cannonComp.transform.forward, out hit, 5f))
+        if (Physics.SphereCast(cannonComp.transform.position, 0.5f, cannonComp.transform.forward, out hit, 1f))
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
