@@ -29,7 +29,7 @@ public class EnemyPool
     void OnRemoveEnemy(EnemyBaseComponent enemyComp)
     {
         enemyComp.gameObject.SetActive(false);
-        // gameState.enemies.Remove(enemyComp);
+        gameState.activeEnemies.Remove(enemyComp);
         playerComp.xp += enemyComp.dropXp;
     }
 
@@ -41,13 +41,15 @@ public class EnemyPool
         {
             List<GameObject> targetPool = pool[hash];
             bool isSpawned = false;
-            foreach (var enemy in targetPool)
+            int count = targetPool.Count;
+            if (count == 0) return;
+            for (int i=count-1 ; i>=0 ; --i)
             {
-                if (!enemy.activeSelf)
+                if (!targetPool[i].activeSelf)
                 {
-                    enemy.SetActive(true);
-                    enemy.transform.position = genePos;
-                    ResetEnemy(enemy);
+                    targetPool[i].SetActive(true);
+                    targetPool[i].transform.position = genePos;
+                    ResetEnemy(targetPool[i]);
                     isSpawned = true;
                     break;
                 }
@@ -89,5 +91,6 @@ public class EnemyPool
 
         // Enemyリストに追加
         gameState.enemies.Add(enemyComp);
+        gameState.activeEnemies.Add(enemyComp);
     }
 }

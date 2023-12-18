@@ -32,6 +32,7 @@ public class GameState
     [Header("Enemy")]
     public GameObject enemy;
     public List<EnemyBaseComponent> enemies = new List<EnemyBaseComponent>();
+    public List<EnemyBaseComponent> activeEnemies = new List<EnemyBaseComponent>();
     public Transform parentEnemies;
     public float spawnCoolTime;
     public float enemyCountLimit;
@@ -41,11 +42,17 @@ public class GameState
     public GameObject redSlimePrefab;
     public GameObject blueTurtlePrefab;
 
+    [Header("DamageTexts")]
+    public Transform parentDamageText;
+    public GameObject prefabDamageText;
+    public List<DamageTextComponent> damageTexts;
+
     [Header("Timer")]
     public float gameTimer;
     public float enemySpawnTimer;
 
-    [Header("Minimap")]
+    [Header("Camera")]
+    public GameObject mainCamera;
     public GameObject minimapCamera;
 
     [Header("Timer")]

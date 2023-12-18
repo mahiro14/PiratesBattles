@@ -720,6 +720,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359808404}
   m_CullTransparentMesh: 1
+--- !u!1 &1424690586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1424690587}
+  m_Layer: 0
+  m_Name: ParentDamageTexts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1424690587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424690586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1449026155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,16 +1123,21 @@ MonoBehaviour:
     camera: {fileID: 1639241585}
     enemy: {fileID: 523854984307481767, guid: d2f3fb105d8d3be4b9672738ce42c897, type: 3}
     enemies: []
+    activeEnemies: []
     parentEnemies: {fileID: 1449026156}
     spawnCoolTime: 5
-    enemyCountLimit: 10
+    enemyCountLimit: 1
     enemyPrefab:
     - {fileID: 523854984307481767, guid: d2f3fb105d8d3be4b9672738ce42c897, type: 3}
     - {fileID: 1078375806313222121, guid: aadde34e89162c54d81f750b87f214c8, type: 3}
     redSlimePrefab: {fileID: 523854984307481767, guid: d2f3fb105d8d3be4b9672738ce42c897, type: 3}
     blueTurtlePrefab: {fileID: 1078375806313222121, guid: aadde34e89162c54d81f750b87f214c8, type: 3}
+    parentDamageText: {fileID: 1424690587}
+    prefabDamageText: {fileID: 8637000078723392163, guid: 6fee3e9d5eac2ba45ade3a1117907bc7, type: 3}
+    damageTexts: []
     gameTimer: 0
     enemySpawnTimer: 0
+    mainCamera: {fileID: 963194225}
     minimapCamera: {fileID: 1686223987}
     cannonBallPrefab: {fileID: 8550196051155209529, guid: 0277193025b969d4d85e5e9910712927, type: 3}
     cannonBallParent: {fileID: 394573632}
@@ -1252,3 +1288,4 @@ SceneRoots:
   - {fileID: 394573632}
   - {fileID: 962262190}
   - {fileID: 1449026156}
+  - {fileID: 1424690587}

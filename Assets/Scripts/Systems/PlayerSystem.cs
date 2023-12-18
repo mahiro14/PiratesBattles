@@ -52,7 +52,7 @@ public class PlayerSystem
         {
             gameEvent.defeatPlayer?.Invoke();
         }
-        playerComp.hpBar.value = enemyComp.hp;
+        playerComp.hpBar.value = playerComp.hp;
         playerComp.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);
     }
 

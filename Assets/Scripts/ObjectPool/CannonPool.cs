@@ -41,13 +41,15 @@ public class CannonPool
         {
             List<GameObject> targetPool = pool[hash];
             bool isSpawned = false;
-            foreach (GameObject cannon in targetPool)
+            int count = targetPool.Count;
+            if (count == 0) return null;
+            for (int i=count-1 ; i>=0 ; --i)
             {
-                if (!cannon.activeSelf)
+                if (!targetPool[i].activeSelf)
                 {
-                    cannon.transform.position = genePos;
+                    targetPool[i].transform.position = genePos;
                     isSpawned = true;
-                    return cannon;
+                    return targetPool[i];
                 }
             }
             if (!isSpawned)

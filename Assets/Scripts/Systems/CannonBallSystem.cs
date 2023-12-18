@@ -77,6 +77,7 @@ public class CannonBallSystem
             {
                 EnemyBaseComponent enemyComp = hit.collider.gameObject.GetComponent<EnemyBaseComponent>();
                 gameEvent.cannonHitEnemy?.Invoke(enemyComp);
+                gameEvent.geneText?.Invoke(playerComp.gameObject, enemyComp.gameObject);
                 gameEvent.onRemoveCannon?.Invoke(cannonComp);
             }
         }

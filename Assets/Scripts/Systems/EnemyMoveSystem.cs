@@ -6,9 +6,10 @@ public class EnemyMoveSystem
     GameEvent gameEvent;
     GameObject playerObj;
     PlayerComponent playerComp;
-    EnemyBaseComponent enemyComp;
-    Vector3 pos;
     Rigidbody rig;
+
+    float sphereCastRadius = 0.5f;
+    float sphereCastDistance = 1f;
     public EnemyMoveSystem(GameState _gameState, GameEvent _gameEvent)
     {
         gameState = _gameState;
@@ -21,7 +22,6 @@ public class EnemyMoveSystem
     {
         playerObj = gameState.player;
         playerComp = gameState.player.GetComponent<PlayerComponent>();
-        pos = playerObj.transform.position;
     }
 
     public void OnUpdate()
@@ -36,18 +36,22 @@ public class EnemyMoveSystem
 
     void ControlEnemyUI()
     {
-        foreach(EnemyBaseComponent enemyComp in gameState.enemies)
-        {
-            enemyComp.hpBar.transform.LookAt(Camera.main.transform);
-        }
+            int count = gameState.activeEnemies.Count;
+            if (count == 0) return;
+            for (int i=count-1 ; i>=0 ; --i)
+            {
+                gameState.activeEnemies[i].canvas.transform.LookAt(Camera.main.transform);
+            }
     }
 
     void EnemyAction()
     {
-        foreach(EnemyBaseComponent enemyComp in gameState.enemies)
+        int count = gameState.activeEnemies.Count;
+        if (count == 0) return;
+        for (int i=count-1 ; i>=0 ; --i)
         {
-            enemyComp.attackTimer += Time.deltaTime;
-            MoveTowardsPlayer(enemyComp);
+            gameState.activeEnemies[i].attackTimer += Time.deltaTime;
+            MoveTowardsPlayer(gameState.activeEnemies[i]);
         }
     }
 
@@ -56,7 +60,8 @@ public class EnemyMoveSystem
         enemyComp.transform.LookAt(playerComp.transform.position);
         Vector3 direction = playerObj.transform.position - enemyComp.transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(enemyComp.transform.position, direction, out hit, 0.5f))
+
+        if (Physics.SphereCast(enemyComp.transform.position, sphereCastRadius, direction, out hit, sphereCastDistance))
         {
             if (hit.collider.CompareTag("Player"))
             {
@@ -72,6 +77,7 @@ public class EnemyMoveSystem
         if (enemyComp.attackTimer > enemyComp.coolTime)
         {
             gameEvent.enemyAttack?.Invoke(enemyComp);
+            gameEvent.geneText?.Invoke(enemyComp.gameObject, playerObj);
             enemyComp.attackTimer = 0;
         }
     }

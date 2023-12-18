@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 2685490730963040520}
   - component: {fileID: 6750837329714185491}
   - component: {fileID: 997559822338876026}
-  - component: {fileID: 4870327023043616712}
   - component: {fileID: 7390343703407168544}
   - component: {fileID: -5804580219914498494}
   m_Layer: 7
@@ -201,26 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   maxHp: 10
-  hpBar: {fileID: 7549464393343995872}
-  dropXp: 10
-  moveSpeed: 3
-  attack: 2
-  attackTimer: 0
-  coolTime: 3
---- !u!114 &4870327023043616712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078375806313222121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c946d980ec656145899f1ed5b60c4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 10
-  maxHp: 10
+  canvas: {fileID: 5434091847057789787}
   hpBar: {fileID: 7549464393343995872}
   dropXp: 10
   moveSpeed: 3
@@ -1419,6 +1399,11 @@ PrefabInstance:
 --- !u!224 &457092969075578127 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2665339637703932877, guid: ce8044c20703f4849b0078e0c5554761, type: 3}
+  m_PrefabInstance: {fileID: 2498050721334193858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &5434091847057789787 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7620968371583040921, guid: ce8044c20703f4849b0078e0c5554761, type: 3}
   m_PrefabInstance: {fileID: 2498050721334193858}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7549464393343995872 stripped

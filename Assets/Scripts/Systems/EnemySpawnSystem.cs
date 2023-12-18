@@ -29,6 +29,7 @@ public class EnemySpawnSystem
         pPos = playerComp.transform.position;
         if ( gameState.enemySpawnTimer > gameState.spawnCoolTime )
         {
+            if (gameState.enemyCountLimit <= gameState.activeEnemies.Count) return;
             EnemyGenerate();
             gameState.enemySpawnTimer = 0;
         }

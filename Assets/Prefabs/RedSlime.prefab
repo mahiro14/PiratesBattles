@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1093295736087261522}
   - component: {fileID: 4638144981202742977}
   - component: {fileID: 8945316255585468675}
-  - component: {fileID: 2081130594068626036}
   - component: {fileID: 7545324387231688219}
   - component: {fileID: 4266852991615980140}
   m_Layer: 7
@@ -75,26 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   maxHp: 5
-  hpBar: {fileID: 6697107992362779115}
-  dropXp: 5
-  moveSpeed: 3
-  attack: 2
-  attackTimer: 0
-  coolTime: 3
---- !u!114 &2081130594068626036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523854984307481767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c946d980ec656145899f1ed5b60c4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 5
-  maxHp: 5
+  canvas: {fileID: 9177272125209566544}
   hpBar: {fileID: 6697107992362779115}
   dropXp: 5
   moveSpeed: 3
@@ -772,3 +752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &9177272125209566544 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7620968371583040921, guid: ce8044c20703f4849b0078e0c5554761, type: 3}
+  m_PrefabInstance: {fileID: 1630063392486351049}
+  m_PrefabAsset: {fileID: 0}

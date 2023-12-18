@@ -15,6 +15,7 @@ public class GameMain : MonoBehaviour
     private EnemyMoveSystem enemyMoveSystem;
     private CannonBallSystem cannonBallSystem;
     private EnemyDamageSystem enemyDamageSystem;
+    private DamageTextSystem damageTextSystem;
     
     void Start()
     {
@@ -27,6 +28,7 @@ public class GameMain : MonoBehaviour
         enemyMoveSystem = new EnemyMoveSystem(gameState, gameEvent);
         cannonBallSystem = new CannonBallSystem(gameState, gameEvent);
         enemyDamageSystem = new EnemyDamageSystem(gameState, gameEvent);
+        damageTextSystem = new DamageTextSystem(gameState, gameEvent);
 
         gameEvent.startGame?.Invoke();
     }
@@ -40,6 +42,7 @@ public class GameMain : MonoBehaviour
         enemyMoveSystem.OnUpdate();
         playerAttackSystem.OnUpdate();
         enemySpawnSystem.OnUpdate();
+        damageTextSystem.OnUpdate();
     }
     
     void FixedUpdate()
