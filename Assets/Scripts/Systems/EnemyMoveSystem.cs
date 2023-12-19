@@ -78,6 +78,7 @@ public class EnemyMoveSystem
         {
             gameEvent.enemyAttack?.Invoke(enemyComp);
             gameEvent.geneText?.Invoke(enemyComp.gameObject, playerObj);
+            gameEvent.geneEffect?.Invoke(playerComp.gameObject);
             enemyComp.attackTimer = 0;
         }
     }

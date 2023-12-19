@@ -42,7 +42,12 @@ public class PlayerSystem
         playerComp.xpBar.maxValue = playerComp.maxXp;
         playerComp.xpBar.value = 0;
         playerComp.xpText.SetText(playerComp.xp + "/" +playerComp.maxXp);
-        playerComp.levelText.SetText("Lv." +playerComp.level);
+        playerComp.levelText.SetText(playerComp.level.ToString());
+
+        // Attackバー
+        playerComp.attackTimer = 0;
+        playerComp.attackBar.value = 0;
+        playerComp.attackBar.maxValue = playerComp.coolTime;
     }
 
     void UpdatePlayerHp(EnemyBaseComponent enemyComp)

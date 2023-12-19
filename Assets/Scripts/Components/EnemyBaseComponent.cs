@@ -12,6 +12,7 @@ public class EnemyBaseComponent : MonoBehaviour
 
     // Attack
     public float attack;
+    public Slider attackBar;
     public float attackTimer;
     public float coolTime;
 

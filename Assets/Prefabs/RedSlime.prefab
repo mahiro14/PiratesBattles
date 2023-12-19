@@ -79,6 +79,7 @@ MonoBehaviour:
   dropXp: 5
   moveSpeed: 3
   attack: 2
+  attackBar: {fileID: 8934896580089024289}
   attackTimer: 0
   coolTime: 3
 --- !u!135 &7545324387231688219
@@ -744,6 +745,17 @@ RectTransform:
 --- !u!114 &6697107992362779115 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5363732423915004194, guid: ce8044c20703f4849b0078e0c5554761, type: 3}
+  m_PrefabInstance: {fileID: 1630063392486351049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8934896580089024289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7881307170771005416, guid: ce8044c20703f4849b0078e0c5554761, type: 3}
   m_PrefabInstance: {fileID: 1630063392486351049}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

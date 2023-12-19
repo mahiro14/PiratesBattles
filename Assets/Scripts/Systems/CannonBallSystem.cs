@@ -79,6 +79,7 @@ public class CannonBallSystem
                 gameEvent.cannonHitEnemy?.Invoke(enemyComp);
                 gameEvent.geneText?.Invoke(playerComp.gameObject, enemyComp.gameObject);
                 gameEvent.onRemoveCannon?.Invoke(cannonComp);
+                gameEvent.geneEffect?.Invoke(enemyComp.gameObject);
             }
         }
     }

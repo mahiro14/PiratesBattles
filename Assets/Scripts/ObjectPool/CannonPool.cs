@@ -54,14 +54,14 @@ public class CannonPool
             }
             if (!isSpawned)
             {
-                GameObject cannon = GameObject.Instantiate(cannonPrefab, genePos, Quaternion.identity, gameState.cannonBallParent);
+                GameObject cannon = GameObject.Instantiate(cannonPrefab, genePos, Quaternion.identity, gameState.parentCannonBall);
                 targetPool.Add(cannon);
                 return cannon;
             }
         }
         else
         {
-            GameObject cannon = GameObject.Instantiate(cannonPrefab, genePos, Quaternion.identity, gameState.cannonBallParent);
+            GameObject cannon = GameObject.Instantiate(cannonPrefab, genePos, Quaternion.identity, gameState.parentCannonBall);
             cannonComp = cannon.GetComponent<CannonBallComponent>();
             List<GameObject> poolList = new List<GameObject> { cannon };
             pool.Add(hash, poolList);

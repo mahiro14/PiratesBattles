@@ -24,6 +24,7 @@ public class DamageTextPool
 
     public GameObject OnShowText(GameObject textPrefab, GameObject target)
     {
+        Vector3 genePos = target.transform.position;
         int hash = textPrefab.GetHashCode();
         if (pool.ContainsKey(hash))
         {
@@ -34,17 +35,17 @@ public class DamageTextPool
                 if (targetPool[j].activeSelf == false)
                 {
                     targetPool[j].SetActive(true);
-                    targetPool[j].transform.position = target.transform.position;
+                    targetPool[j].transform.position = genePos;
                     return targetPool[j];
                 }
             }
-            GameObject damageText = GameObject.Instantiate(targetPool[0], target.transform.position, Quaternion.identity, gameState.parentDamageText);
+            GameObject damageText = GameObject.Instantiate(targetPool[0], genePos, Quaternion.identity, gameState.parentDamageText);
             targetPool.Add(damageText);
             damageText.SetActive(true);
             return damageText;
         }
 
-        GameObject damageText2 = GameObject.Instantiate(textPrefab, target.transform.position, Quaternion.identity, gameState.parentDamageText);
+        GameObject damageText2 = GameObject.Instantiate(textPrefab, genePos, Quaternion.identity, gameState.parentDamageText);
         List<GameObject> poolList = new List<GameObject>();
         poolList.Add(damageText2);
         pool.Add(hash, poolList);

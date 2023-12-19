@@ -29,6 +29,7 @@ public class PlayerAttackSystem
         if ( playerComp.attackTimer < playerComp.coolTime )
         {
             playerComp.attackTimer += Time.deltaTime;
+            playerComp.attackBar.value = playerComp.attackTimer;
             return;
         }
         // if ( !((Input.GetMouseButton(0) && Input.mousePosition.x >= Screen.width/2) || Input.GetKeyDown("space")) ) return;

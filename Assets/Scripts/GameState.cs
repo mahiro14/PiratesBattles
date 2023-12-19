@@ -24,6 +24,11 @@ public class GameState
     public FloatingJoystick inputMove;
     public Vector3 basePos = new Vector3(0f, 0f, 0f);
 
+    [Header("Effect")]
+    public GameObject damageEffectPrefab;
+    public Transform parentEffects;
+    public List<DamageEffectComponent> damageEffects = new List<DamageEffectComponent>();
+
     [Header("Player")]
     public GameObject player;
     public GameObject shipPrefab;
@@ -57,9 +62,9 @@ public class GameState
 
     [Header("Timer")]
     public GameObject cannonBallPrefab;
-    public Transform cannonBallParent;
+    public Transform parentCannonBall;
     public List<CannonBallComponent> cannonBalls = new List<CannonBallComponent>();
     public GameObject cannonMuzzle;
     public GameObject cannonMuzzlePrefab;
-    public Transform cannonMuzzleParent;
+    public Transform parentCannonMuzzle;
 }
