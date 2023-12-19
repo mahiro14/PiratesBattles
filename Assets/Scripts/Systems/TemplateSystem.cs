@@ -12,6 +12,6 @@ public class TemplateSystem
 
     public void OnUpdate()
     {
-        
+        if ( gameState.gameStatus != GameStatus.IsPlaying) return;
     }
 }

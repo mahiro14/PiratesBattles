@@ -12,11 +12,11 @@ public class PlayerSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.showTitle += ResetPlayer;
     }
 
     void Init()
     {
-        ResetPlayer();
         gameEvent.enemyAttack += UpdatePlayerHp;
         gameEvent.getXp += UpdatePlayerXp;
         gameEvent.addScore += UpdateScoreText;
@@ -28,6 +28,7 @@ public class PlayerSystem
 
     void ResetPlayer()
     {
+        // if (gameState.player != null) gameState.
         GameObject player = GameObject.Instantiate(gameState.shipPrefab, gameState.basePos, Quaternion.identity);
         Debug.Log("set player");
         gameState.player = player;
@@ -61,7 +62,7 @@ public class PlayerSystem
         playerComp.hp -= enemyComp.attack;
         if (playerComp.hp <= 0)
         {
-            gameEvent.defeatPlayer?.Invoke();
+            gameEvent.gameOver?.Invoke();
         }
         playerComp.hpBar.value = playerComp.hp;
         playerComp.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);

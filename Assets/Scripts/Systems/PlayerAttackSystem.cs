@@ -21,6 +21,7 @@ public class PlayerAttackSystem
 
     public void OnUpdate()
     {
+        if ( gameState.gameStatus != GameStatus.IsPlaying) return;
         ShootCannon();
     }
 

@@ -33,4 +33,7 @@ public class PlayerComponent : MonoBehaviour
     public Slider attackBar;
     public float attackTimer;
     public float coolTime;
+
+    // Timer
+    public TextMeshProUGUI timeText;
 }

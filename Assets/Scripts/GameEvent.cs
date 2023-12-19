@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class GameEvent : MonoBehaviour
 {
+    public Action showTitle;
     public Action startGame;
-    public Action defeatPlayer;
-    public Action gameOver;
+    public Action pauseGame;
+    public Action resetGame;
     public Action showResult;
-    public Action retryGame;
-    public Action backTitle;
+    public Action gameOver;
 
     public Action playerAttack;
     public Action<GameObject, GameObject> geneText;

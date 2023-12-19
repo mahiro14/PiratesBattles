@@ -31,6 +31,7 @@ public class PlayerMoveSystem
 
     public void OnFixUpdate()
     {
+        if ( gameState.gameStatus != GameStatus.IsPlaying) return;
         MovePlayer();
     }
 

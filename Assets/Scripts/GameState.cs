@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameStatus
 {
     Ready,
     IsPlaying,
+    PauseGame,
     GameOver,
     Result,
 }
@@ -20,9 +23,12 @@ public enum EnemyType
 public class GameState
 {
     [Header("System")]
+    public GameStatus gameStatus;
     public GameState gameState;
     public FloatingJoystick inputMove;
     public Vector3 basePos = new Vector3(0f, 0f, 0f);
+    public Button pauseButton;
+    public List<BaseScreen> screens;
 
     [Header("Effect")]
     public GameObject damageEffectPrefab;

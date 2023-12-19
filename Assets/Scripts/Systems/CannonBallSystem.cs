@@ -33,6 +33,7 @@ public class CannonBallSystem
 
     public void OnFixUpdate()
     {
+        if (gameState.gameStatus != GameStatus.IsPlaying) return;
         BallManage();
     }
 

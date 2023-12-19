@@ -26,11 +26,13 @@ public class EnemyMoveSystem
 
     public void OnUpdate()
     {
+        if (gameState.gameStatus != GameStatus.IsPlaying) return;
         ControlEnemyUI();
     }
 
     public void OnFixUpdate()
     {
+        if (gameState.gameStatus != GameStatus.IsPlaying) return;
         EnemyAction();
     }
 

@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMain : MonoBehaviour
 {
     [SerializeField] GameState gameState;
     [SerializeField] GameEvent gameEvent;
+    [SerializeField] List<BaseScreen> screens;
 
     [Header("Systems")]
     private GameSystem gameSystem;
@@ -20,8 +22,8 @@ public class GameMain : MonoBehaviour
     
     void Start()
     {
-        gameSystem = new GameSystem(gameState, gameEvent);
         playerSystem = new PlayerSystem(gameState, gameEvent);
+        gameSystem = new GameSystem(gameState, gameEvent);
         cameraMoveSystem = new CameraMoveSystem(gameState, gameEvent);
         playerMoveSystem = new PlayerMoveSystem(gameState, gameEvent);
         playerAttackSystem = new PlayerAttackSystem(gameState, gameEvent);
@@ -32,7 +34,12 @@ public class GameMain : MonoBehaviour
         damageTextSystem = new DamageTextSystem(gameState, gameEvent);
         effectSystem = new EffectSystem(gameState, gameEvent);
 
-        gameEvent.startGame?.Invoke();
+        gameEvent.showTitle?.Invoke();
+
+        foreach(BaseScreen screen in gameState.screens)
+        {
+            screen.Init(gameState, gameEvent);
+        }
     }
 
     void Update()

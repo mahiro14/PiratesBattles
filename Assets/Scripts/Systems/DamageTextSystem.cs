@@ -22,6 +22,7 @@ public class DamageTextSystem
 
     public void OnUpdate()
     {
+        if (gameState.gameStatus != GameStatus.IsPlaying) return;
         UpdateTexts();
     }
 

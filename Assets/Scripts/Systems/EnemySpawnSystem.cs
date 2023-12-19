@@ -26,6 +26,12 @@ public class EnemySpawnSystem
 
     public void OnUpdate()
     {
+        if (gameState.gameStatus != GameStatus.IsPlaying) return;
+        EnemySpawnAction();
+    }
+
+    void EnemySpawnAction()
+    {
         pPos = playerComp.transform.position;
         if ( gameState.enemySpawnTimer > gameState.spawnCoolTime )
         {
