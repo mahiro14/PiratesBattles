@@ -1086,6 +1086,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1639241586}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1701857016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701857017}
+  m_Layer: 0
+  m_Name: ParentDamageEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1701857017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701857016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859899086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1149,9 @@ MonoBehaviour:
   gameState:
     inputMove: {fileID: 3139309895367833269}
     basePos: {x: 0, y: 2, z: 0}
+    damageEffectPrefab: {fileID: 100000, guid: 49ee383306650b645b8a12b582a38b10, type: 3}
+    parentEffects: {fileID: 1701857017}
+    damageEffects: []
     player: {fileID: 0}
     shipPrefab: {fileID: 61435581039068717, guid: 2bed9426cc4ce3b40ad90ffc7290a114, type: 3}
     camera: {fileID: 1639241585}
@@ -1140,11 +1174,11 @@ MonoBehaviour:
     mainCamera: {fileID: 963194225}
     minimapCamera: {fileID: 1686223987}
     cannonBallPrefab: {fileID: 8550196051155209529, guid: 0277193025b969d4d85e5e9910712927, type: 3}
-    cannonBallParent: {fileID: 394573632}
+    parentCannonBall: {fileID: 0}
     cannonBalls: []
     cannonMuzzle: {fileID: 0}
     cannonMuzzlePrefab: {fileID: 0}
-    cannonMuzzleParent: {fileID: 0}
+    parentCannonMuzzle: {fileID: 0}
   gameEvent: {fileID: 446436503}
 --- !u!4 &1859899088
 Transform:
@@ -1289,3 +1323,4 @@ SceneRoots:
   - {fileID: 962262190}
   - {fileID: 1449026156}
   - {fileID: 1424690587}
+  - {fileID: 1701857017}
