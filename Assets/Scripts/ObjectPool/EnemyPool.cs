@@ -30,7 +30,7 @@ public class EnemyPool
     {
         enemyComp.gameObject.SetActive(false);
         gameState.activeEnemies.Remove(enemyComp);
-        playerComp.xp += enemyComp.dropXp;
+        playerComp.score += enemyComp.score;
     }
 
     public void OnSpawnEnemy(GameObject enemyPrefab)

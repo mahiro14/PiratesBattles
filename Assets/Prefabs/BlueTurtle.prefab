@@ -203,7 +203,9 @@ MonoBehaviour:
   canvas: {fileID: 5434091847057789787}
   hpBar: {fileID: 7549464393343995872}
   dropXp: 10
+  score: 20
   moveSpeed: 3
+  rig: {fileID: -5804580219914498494}
   attack: 2
   attackBar: {fileID: 5749650832866083114}
   attackTimer: 0

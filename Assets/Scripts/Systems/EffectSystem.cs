@@ -23,32 +23,28 @@ public class EffectSystem
 
     public void OnUpdate()
     {
-        EffectAction();
+
     }
 
-    void EffectAction()
-    {
-        int count = gameState.damageEffects.Count;
-        if (count == 0) return;
-        for (int i=count-1 ; i>=0 ; --i)
-        {
-            damageEffectComp = gameState.damageEffects[i];
-            damageEffectComp.timer += Time.deltaTime;
-            if (damageEffectComp.timer > damageEffectComp.removeTime)
-            {
-                damageEffectComp.timer = 0;
-                gameEvent.removeEffect(damageEffectComp);
-            }
-        }
-    }
+    // void EffectAction()
+    // {
+    //     int count = gameState.damageEffects.Count;
+    //     if (count == 0) return;
+    //     for (int i=count-1 ; i>=0 ; --i)
+    //     {
+    //         damageEffectComp = gameState.damageEffects[i];
+    //         damageEffectComp.timer += Time.deltaTime;
+    //         if (damageEffectComp.timer > damageEffectComp.removeTime)
+    //         {
+    //             damageEffectComp.timer = 0;
+    //             gameEvent.removeEffect(damageEffectComp);
+    //         }
+    //     }
+    // }
 
     void GeneEffect(GameObject target)
     {
         Debug.Log("GeneEffect");
-        GameObject damageEffect = damageEffectPool.ShowEffect(gameState.damageEffectPrefab, target);
-        DamageEffectComponent damageEffectComp = damageEffect.GetComponent<DamageEffectComponent>();
-        damageEffectComp.particleSystem.Play();
-        gameState.damageEffects.Add(damageEffectComp);
+        GameObject damageEffect = GameObject.Instantiate(gameState.damageEffectPrefab, target.transform.position, Quaternion.identity, gameState.parentEffects);
     }
-
 }

@@ -1149,7 +1149,7 @@ MonoBehaviour:
   gameState:
     inputMove: {fileID: 3139309895367833269}
     basePos: {x: 0, y: 2, z: 0}
-    damageEffectPrefab: {fileID: 100000, guid: 49ee383306650b645b8a12b582a38b10, type: 3}
+    damageEffectPrefab: {fileID: 100000, guid: f92b12bb227c28a438245d849ed666ec, type: 3}
     parentEffects: {fileID: 1701857017}
     damageEffects: []
     player: {fileID: 0}

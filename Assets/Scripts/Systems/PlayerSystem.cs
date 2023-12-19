@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerSystem
 {
@@ -18,6 +19,7 @@ public class PlayerSystem
         ResetPlayer();
         gameEvent.enemyAttack += UpdatePlayerHp;
         gameEvent.getXp += UpdatePlayerXp;
+        gameEvent.addScore += UpdateScoreText;
     }
     public void OnUpdate()
     {
@@ -38,16 +40,20 @@ public class PlayerSystem
         playerComp.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);
 
         // XPバー
-        playerComp.maxXp = playerComp.baseXp * playerComp.level;
-        playerComp.xpBar.maxValue = playerComp.maxXp;
-        playerComp.xpBar.value = 0;
-        playerComp.xpText.SetText(playerComp.xp + "/" +playerComp.maxXp);
-        playerComp.levelText.SetText(playerComp.level.ToString());
+        // playerComp.maxXp = playerComp.baseXp * playerComp.level;
+        // playerComp.xpBar.maxValue = playerComp.maxXp;
+        // playerComp.xpBar.value = 0;
+        // playerComp.xpText.SetText(playerComp.xp + "/" +playerComp.maxXp);
+        // playerComp.levelText.SetText(playerComp.level.ToString());
 
         // Attackバー
         playerComp.attackTimer = 0;
         playerComp.attackBar.value = 0;
         playerComp.attackBar.maxValue = playerComp.coolTime;
+
+        // Score
+        playerComp.score = 0;
+        playerComp.scoreText.SetText(playerComp.score.ToString());
     }
 
     void UpdatePlayerHp(EnemyBaseComponent enemyComp)
@@ -76,5 +82,11 @@ public class PlayerSystem
         else playerComp.xpBar.value = playerComp.xp;
 
         playerComp.xpText.SetText(playerComp.xp + "/" +playerComp.maxXp);
+    }
+
+    void UpdateScoreText(EnemyBaseComponent enemyComp)
+    {
+        playerComp.score += enemyComp.score;
+        playerComp.scoreText.SetText(playerComp.score.ToString());
     }
 }

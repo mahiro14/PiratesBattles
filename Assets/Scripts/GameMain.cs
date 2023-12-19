@@ -45,7 +45,7 @@ public class GameMain : MonoBehaviour
         playerAttackSystem.OnUpdate();
         enemySpawnSystem.OnUpdate();
         damageTextSystem.OnUpdate();
-        // effectSystem.OnUpdate();
+        effectSystem.OnUpdate();
     }
     
     void FixedUpdate()

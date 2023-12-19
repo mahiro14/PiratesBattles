@@ -69,7 +69,12 @@ public class DetonatorBurstEmitter : DetonatorComponent
 	
     public void Awake()
     {
-		_particleSystem = (gameObject.AddComponent<ParticleSystem>()) as ParticleSystem;		
+		_particleSystem = gameObject.GetComponent<ParticleSystem>();
+		if (_particleSystem == null)
+		{
+			// 存在しない場合、新たに追加
+			_particleSystem = gameObject.AddComponent<ParticleSystem>();
+		}
 
 		if (gameObject.GetComponent<ParticleSystemRenderer>())
 			_psRenderer = gameObject.GetComponent<ParticleSystemRenderer>();

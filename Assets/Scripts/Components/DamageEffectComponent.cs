@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DamageEffectComponent : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
+    public Detonator detonator;
     public float timer;
     public float removeTime;
 }

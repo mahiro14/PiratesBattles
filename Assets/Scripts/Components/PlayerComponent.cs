@@ -13,6 +13,10 @@ public class PlayerComponent : MonoBehaviour
     public Slider hpBar;
     public TextMeshProUGUI hpText;
 
+    // Score
+    public float score;
+    public TextMeshProUGUI scoreText;
+
     // Xp
     public float xp;
     public float maxXp;

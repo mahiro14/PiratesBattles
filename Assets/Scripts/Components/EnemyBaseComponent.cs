@@ -8,7 +8,9 @@ public class EnemyBaseComponent : MonoBehaviour
     public Canvas canvas;
     public Slider hpBar;
     public float dropXp;
+    public float score;
     public float moveSpeed;
+    public Rigidbody rig;
 
     // Attack
     public float attack;

@@ -14,6 +14,7 @@ public class GameEvent : MonoBehaviour
     public Action<GameObject, GameObject> geneText;
     public Action<GameObject> geneEffect;
     public Action<EnemyBaseComponent> getXp;
+    public Action<EnemyBaseComponent> addScore;
     public Action<EnemyBaseComponent> enemyAttack;
     public Action<EnemyBaseComponent>  cannonHitEnemy;
     public Action<EnemyBaseComponent> onRemoveEnemy;

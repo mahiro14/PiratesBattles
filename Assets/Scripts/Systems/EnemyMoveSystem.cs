@@ -69,6 +69,7 @@ public class EnemyMoveSystem
                 return;
             }
         }
+        enemyComp.rig.velocity = Vector3.zero;
         enemyComp.transform.position += enemyComp.transform.forward * enemyComp.moveSpeed * Time.deltaTime;
     }
 
