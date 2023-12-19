@@ -37,14 +37,15 @@ public class EffectSystem
             if (damageEffectComp.timer > damageEffectComp.removeTime)
             {
                 damageEffectComp.timer = 0;
-                gameEvent.onRemoveEffect(damageEffectComp);
+                gameEvent.removeEffect(damageEffectComp);
             }
         }
     }
 
     void GeneEffect(GameObject target)
     {
-        GameObject damageEffect = damageEffectPool.OnShowEffect(gameState.damageEffectPrefab, target);
+        Debug.Log("GeneEffect");
+        GameObject damageEffect = damageEffectPool.ShowEffect(gameState.damageEffectPrefab, target);
         DamageEffectComponent damageEffectComp = damageEffect.GetComponent<DamageEffectComponent>();
         damageEffectComp.particleSystem.Play();
         gameState.damageEffects.Add(damageEffectComp);

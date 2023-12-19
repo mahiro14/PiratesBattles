@@ -13,16 +13,16 @@ public class DamageEffectPool
         gameState = _gameState;
         gameEvent = _gameEvent;
 
-        gameEvent.onRemoveEffect += OnRemoveEffect;
+        gameEvent.removeEffect += RemoveEffect;
     }
 
-    private void OnRemoveEffect(DamageEffectComponent damageEffectComp)
+    private void RemoveEffect(DamageEffectComponent damageEffectComp)
     {
         damageEffectComp.gameObject.SetActive(false);
         gameState.damageEffects.Remove(damageEffectComp);
     }
 
-    public GameObject OnShowEffect(GameObject textPrefab, GameObject target)
+    public GameObject ShowEffect(GameObject textPrefab, GameObject target)
     {
         Vector3 genePos = target.transform.position;
         int hash = textPrefab.GetHashCode();

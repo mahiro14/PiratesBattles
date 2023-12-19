@@ -13,16 +13,16 @@ public class DamageTextPool
         gameState = _gameState;
         gameEvent = _gameEvent;
 
-        gameEvent.onRemoveText += OnRemoveText;
+        gameEvent.removeText += RemoveText;
     }
 
-    private void OnRemoveText(DamageTextComponent damageTextComp)
+    private void RemoveText(DamageTextComponent damageTextComp)
     {
         damageTextComp.gameObject.SetActive(false);
         gameState.damageTexts.Remove(damageTextComp);
     }
 
-    public GameObject OnShowText(GameObject textPrefab, GameObject target)
+    public GameObject ShowText(GameObject textPrefab, GameObject target)
     {
         Vector3 genePos = target.transform.position;
         int hash = textPrefab.GetHashCode();

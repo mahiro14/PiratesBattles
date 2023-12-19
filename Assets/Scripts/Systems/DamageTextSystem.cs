@@ -6,7 +6,6 @@ public class DamageTextSystem
     GameEvent gameEvent;
 
     DamageTextPool damageTextPool;
-    DamageTextComponent damageTextComp;
     public DamageTextSystem(GameState _gameState, GameEvent _gameEvent)
     {
         gameState = _gameState;
@@ -23,29 +22,28 @@ public class DamageTextSystem
 
     public void OnUpdate()
     {
-        TextsAction();
+        UpdateTexts();
     }
 
-    void TextsAction()
+    void UpdateTexts()
     {
         int count = gameState.damageTexts.Count;
         if (count == 0) return;
         for (int i=count-1 ; i>=0 ; --i)
         {
-            damageTextComp = gameState.damageTexts[i];
-            damageTextComp.transform.LookAt(Camera.main.transform);
+            DamageTextComponent damageTextComp = gameState.damageTexts[i];
+            if (damageTextComp == null) continue;
+            damageTextComp.transform.LookAt(gameState.mainCamera.transform);
+
             damageTextComp.timer += Time.deltaTime;
-            if (damageTextComp.timer > damageTextComp.removeTime)
-            {
-                damageTextComp.timer = 0;
-                gameEvent.onRemoveText(damageTextComp);
-            }
+            if (damageTextComp.timer < damageTextComp.removeTime) continue;
+            RemoveText(damageTextComp);
         }
     }
 
     void GeneText(GameObject attacker, GameObject target)
     {
-        GameObject damageText = damageTextPool.OnShowText(gameState.prefabDamageText, target);
+        GameObject damageText = damageTextPool.ShowText(gameState.prefabDamageText, target);
         DamageTextComponent damageTextComp = damageText.GetComponent<DamageTextComponent>();
         if (attacker.CompareTag("Player"))
         {
@@ -65,4 +63,9 @@ public class DamageTextSystem
         gameState.damageTexts.Add(damageTextComp);
     }
 
+    void RemoveText(DamageTextComponent damageTextComp)
+    {
+        damageTextComp.timer = 0;
+        gameEvent.removeText(damageTextComp);
+    }
 }

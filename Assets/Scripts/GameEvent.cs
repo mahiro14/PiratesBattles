@@ -18,6 +18,6 @@ public class GameEvent : MonoBehaviour
     public Action<EnemyBaseComponent>  cannonHitEnemy;
     public Action<EnemyBaseComponent> onRemoveEnemy;
     public Action<CannonBallComponent> onRemoveCannon;
-    public Action<DamageTextComponent> onRemoveText;
-    public Action<DamageEffectComponent> onRemoveEffect;
+    public Action<DamageTextComponent> removeText;
+    public Action<DamageEffectComponent> removeEffect;
 }
