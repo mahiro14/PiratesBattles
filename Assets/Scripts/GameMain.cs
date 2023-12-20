@@ -5,7 +5,7 @@ public class GameMain : MonoBehaviour
 {
     [SerializeField] GameState gameState;
     [SerializeField] GameEvent gameEvent;
-    [SerializeField] List<BaseScreen> screens;
+    // [SerializeField] List<BaseScreen> screens;
 
     [Header("Systems")]
     private GameSystem gameSystem;
@@ -34,12 +34,12 @@ public class GameMain : MonoBehaviour
         damageTextSystem = new DamageTextSystem(gameState, gameEvent);
         effectSystem = new EffectSystem(gameState, gameEvent);
 
-        gameEvent.showTitle?.Invoke();
-
         foreach(BaseScreen screen in gameState.screens)
         {
             screen.Init(gameState, gameEvent);
         }
+
+        gameEvent.showTitle?.Invoke();
     }
 
     void Update()

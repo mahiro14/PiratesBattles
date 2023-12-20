@@ -10,12 +10,9 @@ public class PlayerComponent : MonoBehaviour
     // Hp
     public float hp;
     public float maxHp;
-    public Slider hpBar;
-    public TextMeshProUGUI hpText;
 
     // Score
     public float score;
-    public TextMeshProUGUI scoreText;
 
     // Xp
     public float xp;
@@ -30,7 +27,6 @@ public class PlayerComponent : MonoBehaviour
 
     // Attack
     public float attack;
-    public Slider attackBar;
     public float attackTimer;
     public float coolTime;
 

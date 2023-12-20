@@ -53,6 +53,7 @@ public class EnemyMoveSystem
         for (int i=count-1 ; i>=0 ; --i)
         {
             gameState.activeEnemies[i].attackTimer += Time.deltaTime;
+            gameState.activeEnemies[i].attackBar.value = gameState.activeEnemies[i].attackTimer;
             MoveTowardsPlayer(gameState.activeEnemies[i]);
         }
     }

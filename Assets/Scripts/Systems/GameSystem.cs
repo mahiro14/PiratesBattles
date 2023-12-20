@@ -38,7 +38,7 @@ public class GameSystem
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time % 60);
         string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
-        playerComp.timeText.SetText(timeText);
+        gameState.timeText.SetText(timeText);
     }
 
     void ShowPauseScreen()

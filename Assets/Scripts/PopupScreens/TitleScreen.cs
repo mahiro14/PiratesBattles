@@ -17,6 +17,7 @@ public class TitleScreen : BaseScreen
         gameEvent.startGame += OnHide;
 
         startButton.onClick.AddListener(StartGame);
+        this.gameObject.SetActive(false);
     }
 
     void StartGame()
@@ -28,6 +29,7 @@ public class TitleScreen : BaseScreen
     public override void OnShow()
     {
         base.OnShow();
+        Debug.Log("Open Title Screen");
         gameState.gameStatus = GameStatus.Ready;
     }
 }

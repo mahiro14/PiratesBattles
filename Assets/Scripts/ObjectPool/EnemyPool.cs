@@ -88,6 +88,9 @@ public class EnemyPool
         enemyComp.hp = enemyComp.maxHp;
         enemyComp.hpBar.maxValue = enemyComp.maxHp;
         enemyComp.hpBar.value = enemyComp.maxHp;
+        enemyComp.attackTimer = 0;
+        enemyComp.attackBar.maxValue = enemyComp.coolTime;
+        enemyComp.attackBar.value = 0;
 
         // Enemyリストに追加
         gameState.enemies.Add(enemyComp);

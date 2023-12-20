@@ -16,10 +16,12 @@ public class PauseScreen : BaseScreen
         gameEvent.pauseGame += OnShow;
 
         backGameButton.onClick.AddListener(OnClickBackGameButton);
+        this.gameObject.SetActive(false);
     }
     public override void OnShow()
     {
         base.OnShow();
+        Debug.Log("Open Pause Screen");
         gameState.gameStatus = GameStatus.PauseGame;
     }
 

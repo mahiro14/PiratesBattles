@@ -36,9 +36,9 @@ public class PlayerSystem
 
         // HPバー
         playerComp.hp = playerComp.maxHp;
-        playerComp.hpBar.maxValue = playerComp.maxHp;
-        playerComp.hpBar.value = playerComp.maxHp;
-        playerComp.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);
+        gameState.hpBar.maxValue = playerComp.maxHp;
+        gameState.hpBar.value = playerComp.maxHp;
+        gameState.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);
 
         // XPバー
         // playerComp.maxXp = playerComp.baseXp * playerComp.level;
@@ -49,12 +49,12 @@ public class PlayerSystem
 
         // Attackバー
         playerComp.attackTimer = 0;
-        playerComp.attackBar.value = 0;
-        playerComp.attackBar.maxValue = playerComp.coolTime;
+        gameState.attackBar.value = 0;
+        gameState.attackBar.maxValue = playerComp.coolTime;
 
         // Score
         playerComp.score = 0;
-        playerComp.scoreText.SetText(playerComp.score.ToString());
+        gameState.scoreText.SetText(playerComp.score.ToString());
     }
 
     void UpdatePlayerHp(EnemyBaseComponent enemyComp)
@@ -64,8 +64,8 @@ public class PlayerSystem
         {
             gameEvent.gameOver?.Invoke();
         }
-        playerComp.hpBar.value = playerComp.hp;
-        playerComp.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);
+        gameState.hpBar.value = playerComp.hp;
+        gameState.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);
     }
 
     void UpdatePlayerXp(EnemyBaseComponent enemyComp)
@@ -88,6 +88,6 @@ public class PlayerSystem
     void UpdateScoreText(EnemyBaseComponent enemyComp)
     {
         playerComp.score += enemyComp.score;
-        playerComp.scoreText.SetText(playerComp.score.ToString());
+        gameState.scoreText.SetText(playerComp.score.ToString());
     }
 }

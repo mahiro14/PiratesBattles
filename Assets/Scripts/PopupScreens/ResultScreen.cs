@@ -19,9 +19,8 @@ public class ResultScreen : BaseScreen
         gameEvent.showResult += OnShow;
         gameEvent.showTitle += OnHide;
 
-        playerComp = gameState.player.GetComponent<PlayerComponent>();
-
         titleButton.onClick.AddListener(ShowTitleScreen);
+        this.gameObject.SetActive(false);
     }
 
     void ShowTitleScreen()
@@ -33,6 +32,8 @@ public class ResultScreen : BaseScreen
     public override void OnShow()
     {
         base.OnShow();
+        Debug.Log("Open Result Screen");
+        playerComp = gameState.player.GetComponent<PlayerComponent>();
         gameState.gameStatus = GameStatus.Result;
         scoreText.SetText(playerComp.score.ToString());
     }

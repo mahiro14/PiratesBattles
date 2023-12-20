@@ -17,6 +17,7 @@ public class GameOverScreen : BaseScreen
         gameEvent.showResult += OnHide;
 
         resultButton.onClick.AddListener(ShowResultScreen);
+        this.gameObject.SetActive(false);
     }
     
     void ShowResultScreen()
@@ -26,6 +27,7 @@ public class GameOverScreen : BaseScreen
     public override void OnShow()
     {
         base.OnShow();
+        Debug.Log("Open GameOver Screen");
         gameState.gameStatus = GameStatus.GameOver;
     }
 }

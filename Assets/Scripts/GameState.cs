@@ -29,6 +29,7 @@ public class GameState
     public Vector3 basePos = new Vector3(0f, 0f, 0f);
     public Button pauseButton;
     public List<BaseScreen> screens;
+    public TextMeshProUGUI timeText;
 
     [Header("Effect")]
     public GameObject damageEffectPrefab;
@@ -39,6 +40,10 @@ public class GameState
     public GameObject player;
     public GameObject shipPrefab;
     public GameObject camera;
+    public Slider hpBar;
+    public TextMeshProUGUI hpText;
+    public Slider attackBar;
+    public TextMeshProUGUI scoreText;
 
     [Header("Enemy")]
     public GameObject enemy;
