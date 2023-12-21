@@ -11,11 +11,11 @@ public class EnemyDamageSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.cannonHitEnemy += cannonHitEnemy;
     }
 
     void Init()
     {
-        gameEvent.cannonHitEnemy += cannonHitEnemy;
         playerComp = gameState.player.GetComponent<PlayerComponent>();
     }
 

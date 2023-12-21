@@ -16,6 +16,7 @@ public class EnemyMoveSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.resetGame += ResetGame;
     }
 
     void Init()
@@ -34,6 +35,11 @@ public class EnemyMoveSystem
     {
         if (gameState.gameStatus != GameStatus.IsPlaying) return;
         EnemyAction();
+    }
+
+    private void ResetGame()
+    {
+        gameState.activeEnemies.Clear();
     }
 
     void ControlEnemyUI()

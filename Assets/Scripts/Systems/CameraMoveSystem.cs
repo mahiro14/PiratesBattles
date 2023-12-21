@@ -15,6 +15,7 @@ public class CameraMoveSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.resetGame += ResetGame;
     }
 
     void Init()
@@ -28,6 +29,12 @@ public class CameraMoveSystem
     {
         if (gameState.gameStatus != GameStatus.IsPlaying) return;
         MoveCamera();
+    }
+
+    private void ResetGame()
+    {
+        camera.transform.position = gameState.cameraBasePos;
+        pos = camera.transform.position;
     }
 
     void MoveCamera()

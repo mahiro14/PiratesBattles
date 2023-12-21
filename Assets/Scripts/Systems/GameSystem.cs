@@ -12,6 +12,7 @@ public class GameSystem
 
         gameEvent.startGame += Init;
         gameEvent.exitGame += QuitGame;
+        gameEvent.resetGame += ResetGame;
     }
 
     void Init()
@@ -24,6 +25,13 @@ public class GameSystem
     {
         if ( gameState.gameStatus != GameStatus.IsPlaying) return;
         CountTime(Time.deltaTime);
+    }
+
+    private void ResetGame()
+    {
+        gameState.gameTimer = 0;
+        gameState.enemySpawnTimer = 0;
+        gameState.pauseButton.onClick.RemoveAllListeners();
     }
 
 

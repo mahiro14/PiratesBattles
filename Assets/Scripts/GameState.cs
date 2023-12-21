@@ -26,7 +26,8 @@ public class GameState
     public GameStatus gameStatus;
     public GameState gameState;
     public FloatingJoystick inputMove;
-    public Vector3 basePos = new Vector3(0f, 0f, 0f);
+    public Vector3 playerBasePos = new Vector3(0f, 0f, 0f);
+    public Vector3 cameraBasePos = new Vector3(0f, 0f, 0f);
     public Button pauseButton;
     public List<BaseScreen> screens;
     public TextMeshProUGUI timeText;

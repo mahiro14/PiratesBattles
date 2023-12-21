@@ -12,12 +12,13 @@ public class DamageTextSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.resetGame += ResetGame;
+        gameEvent.geneText += GeneText;
     }
 
     void Init()
     {
         damageTextPool = new DamageTextPool(gameState, gameEvent);
-        gameEvent.geneText += GeneText;
     }
 
     public void OnUpdate()
@@ -25,6 +26,19 @@ public class DamageTextSystem
         if (gameState.gameStatus != GameStatus.IsPlaying) return;
         UpdateTexts();
     }
+
+    private void ResetGame()
+    {
+        gameState.damageTexts.Clear();
+        int count = gameState.parentDamageText.transform.childCount;
+        if (count == 0) return;
+        for (int i=count-1 ; i>=0 ; --i)
+        {
+            Transform damageText = gameState.parentDamageText.transform.GetChild(i);
+            GameObject.Destroy(damageText.gameObject);
+        }
+    }
+
 
     void UpdateTexts()
     {

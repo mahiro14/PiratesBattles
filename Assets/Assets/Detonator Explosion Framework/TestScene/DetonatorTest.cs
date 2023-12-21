@@ -67,7 +67,7 @@ public class DetonatorTest : MonoBehaviour
 
     private void SpawnWall()
     {
-        if (_currentWall) Destroy(_currentWall);
+        if (_currentWall) GameObject.Destroy(_currentWall);
         _currentWall = (GameObject) Instantiate(wall, new Vector3(-7, -12, 48), Quaternion.identity);
 
         _spawnWallTime = Time.time;
@@ -111,7 +111,7 @@ public class DetonatorTest : MonoBehaviour
             dTemp = (Detonator)exp.GetComponent("Detonator");
             dTemp.detail = detailLevel;
 
-            Destroy(exp, explosionLife);
+            GameObject.Destroy(exp, explosionLife);
         }
 
 

@@ -13,17 +13,29 @@ public class EffectSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.resetGame += ResetGame;
+        gameEvent.geneEffect += GeneEffect;
     }
 
     void Init()
     {
         damageEffectPool = new DamageEffectPool(gameState, gameEvent);
-        gameEvent.geneEffect += GeneEffect;
     }
 
     public void OnUpdate()
     {
 
+    }
+
+    private void ResetGame()
+    {
+        int count = gameState.parentEffects.transform.childCount;
+        if (count == 0) return;
+        for (int i=count-1 ; i>=0 ; --i)
+        {
+            Transform damageEffect = gameState.parentEffects.transform.GetChild(i);
+            GameObject.Destroy(damageEffect.gameObject);
+        }
     }
 
     // void EffectAction()

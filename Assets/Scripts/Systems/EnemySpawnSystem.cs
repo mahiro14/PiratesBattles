@@ -16,6 +16,7 @@ public class EnemySpawnSystem
         enemyPool = new EnemyPool(gameState, gameEvent);
 
         gameEvent.startGame += Init;
+        gameEvent.resetGame += ResetGame;
     }
 
     void Init()
@@ -28,6 +29,18 @@ public class EnemySpawnSystem
     {
         if (gameState.gameStatus != GameStatus.IsPlaying) return;
         EnemySpawnAction();
+    }
+
+    private void ResetGame()
+    {
+        gameState.enemies.Clear();
+        int count = gameState.parentEnemies.transform.childCount;
+        if (count == 0) return;
+        for (int i=count-1 ; i>=0 ; --i)
+        {
+            Transform enemy = gameState.parentEnemies.transform.GetChild(i);
+            GameObject.Destroy(enemy.gameObject);
+        }
     }
 
     void EnemySpawnAction()

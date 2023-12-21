@@ -55,7 +55,7 @@ public class DetonatorHeatwave : DetonatorComponent {
 			_heatwave.GetComponent<Renderer>().material.SetFloat("_BumpAmt", ((1-_normalizedTime) * distortion));
 			
 			_heatwave.gameObject.transform.localScale = new Vector3(s,s,s);
-			if (_elapsedTime > duration) Destroy(_heatwave.gameObject);
+			if (_elapsedTime > duration) GameObject.Destroy(_heatwave.gameObject);
 		}
 	}
 	
@@ -80,7 +80,7 @@ public class DetonatorHeatwave : DetonatorComponent {
                 _heatwave = GameObject.CreatePrimitive(PrimitiveType.Plane);
 				_heatwave.name = "Heatwave";
 				_heatwave.transform.parent = this.transform;
-				Destroy(_heatwave.GetComponent(typeof(MeshCollider)));
+				GameObject.Destroy(_heatwave.GetComponent(typeof(MeshCollider)));
 
                 if (!heatwaveMaterial) heatwaveMaterial = MyDetonator().heatwaveMaterial;
                 _material.CopyPropertiesFromMaterial(heatwaveMaterial);

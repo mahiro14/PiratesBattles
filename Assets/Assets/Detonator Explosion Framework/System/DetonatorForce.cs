@@ -84,7 +84,7 @@ public class DetonatorForce : DetonatorComponent
 						_tempFireObject.transform.parent = hit.transform;
 						_tempFireObject.transform.localPosition = new Vector3(0f,0f,0f);
 						
-						Destroy(_tempFireObject,fireObjectLife);
+						GameObject.Destroy(_tempFireObject,fireObjectLife);
 					}
 				}
 			}

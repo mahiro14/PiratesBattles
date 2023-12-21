@@ -12,6 +12,7 @@ public class PlayerSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.resetGame += ResetGame;
         gameEvent.showTitle += ResetPlayer;
     }
 
@@ -26,10 +27,15 @@ public class PlayerSystem
         
     }
 
+    private void ResetGame()
+    {
+        GameObject.Destroy(gameState.player);
+    }
+
     void ResetPlayer()
     {
         // if (gameState.player != null) gameState.
-        GameObject player = GameObject.Instantiate(gameState.shipPrefab, gameState.basePos, Quaternion.identity);
+        GameObject player = GameObject.Instantiate(gameState.shipPrefab, gameState.playerBasePos, Quaternion.identity);
         Debug.Log("set player");
         gameState.player = player;
         playerComp = gameState.player.GetComponent<PlayerComponent>();

@@ -10,6 +10,7 @@ public class ResultScreen : BaseScreen
     GameEvent gameEvent;
     [SerializeField] Button titleButton;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI timeText;
     PlayerComponent playerComp;
     public override void Init(GameState _gameState, GameEvent _gameEvent)
     {
@@ -36,5 +37,14 @@ public class ResultScreen : BaseScreen
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         gameState.gameStatus = GameStatus.Result;
         scoreText.SetText(playerComp.score.ToString());
+        SetTime(gameState.gameTimer);
+    }
+
+    private void SetTime(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+        this.timeText.SetText(timeText);
     }
 }

@@ -18,13 +18,14 @@ public class CannonBallSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.resetGame += ResetGame;
+        gameEvent.playerAttack += BallGene;
     }
 
     void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         cannonPool = new CannonPool(gameState, gameEvent);
-        gameEvent.playerAttack += BallGene;
     }
 
     public void OnUpdate()
@@ -37,6 +38,17 @@ public class CannonBallSystem
         BallManage();
     }
 
+    private void ResetGame()
+    {
+        gameState.cannonBalls.Clear();
+        int count = gameState.parentCannonBall.transform.childCount;
+        if (count == 0) return;
+        for (int i=count-1 ; i>=0 ; --i)
+        {
+            Transform cannonBall = gameState.parentCannonBall.transform.GetChild(i);
+            GameObject.Destroy(cannonBall.gameObject);
+        }
+    }
     void BallManage()
     {
         int count = gameState.cannonBalls.Count;
