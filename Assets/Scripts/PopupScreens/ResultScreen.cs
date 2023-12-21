@@ -24,7 +24,7 @@ public class ResultScreen : BaseScreen
         this.gameObject.SetActive(false);
     }
 
-    void ShowTitleScreen()
+    private void ShowTitleScreen()
     {
         gameEvent.resetGame?.Invoke();
         gameEvent.showTitle?.Invoke();

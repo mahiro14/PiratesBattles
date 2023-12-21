@@ -19,7 +19,7 @@ public class EnemyMoveSystem
         gameEvent.resetGame += ResetGame;
     }
 
-    void Init()
+    private void Init()
     {
         playerObj = gameState.player;
         playerComp = gameState.player.GetComponent<PlayerComponent>();
@@ -42,7 +42,7 @@ public class EnemyMoveSystem
         gameState.activeEnemies.Clear();
     }
 
-    void ControlEnemyUI()
+    private void ControlEnemyUI()
     {
             int count = gameState.activeEnemies.Count;
             if (count == 0) return;
@@ -52,7 +52,7 @@ public class EnemyMoveSystem
             }
     }
 
-    void EnemyAction()
+    private void EnemyAction()
     {
         int count = gameState.activeEnemies.Count;
         if (count == 0) return;
@@ -64,7 +64,7 @@ public class EnemyMoveSystem
         }
     }
 
-    void MoveTowardsPlayer(EnemyBaseComponent enemyComp)
+    private void MoveTowardsPlayer(EnemyBaseComponent enemyComp)
     {
         enemyComp.transform.LookAt(playerComp.transform.position);
         Vector3 direction = playerObj.transform.position - enemyComp.transform.position;
@@ -82,7 +82,7 @@ public class EnemyMoveSystem
         enemyComp.transform.position += enemyComp.transform.forward * enemyComp.moveSpeed * Time.deltaTime;
     }
 
-    void EnemyCollision(EnemyBaseComponent enemyComp)
+    private void EnemyCollision(EnemyBaseComponent enemyComp)
     {
         if (enemyComp.attackTimer > enemyComp.coolTime)
         {

@@ -19,7 +19,7 @@ public class EnemySpawnSystem
         gameEvent.resetGame += ResetGame;
     }
 
-    void Init()
+    private void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         enemyComp = gameState.enemy.GetComponent<EnemyBaseComponent>();
@@ -43,7 +43,7 @@ public class EnemySpawnSystem
         }
     }
 
-    void EnemySpawnAction()
+    private void EnemySpawnAction()
     {
         pPos = playerComp.transform.position;
         if ( gameState.enemySpawnTimer > gameState.spawnCoolTime )
@@ -54,7 +54,7 @@ public class EnemySpawnSystem
         }
     }
 
-    void EnemyGenerate()
+    private void EnemyGenerate()
     {
         int randNum = Random.Range(0, gameState.enemyPrefab.Count);
         switch(randNum)
@@ -70,12 +70,12 @@ public class EnemySpawnSystem
         }
     }
 
-    void GenerateRedSlime()
+    private void GenerateRedSlime()
     {
         enemyPool.OnSpawnEnemy(gameState.enemyPrefab[0]);
     }
 
-    void GenerateBlueTurtle()
+    private void GenerateBlueTurtle()
     {
         enemyPool.OnSpawnEnemy(gameState.enemyPrefab[1]);
     }

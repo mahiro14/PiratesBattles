@@ -20,13 +20,13 @@ public class CannonPool
         gameEvent.startGame += Init;
     }
 
-    void Init()
+    private void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         pool.Clear();
     }
 
-    void OnRemoveCannon(CannonBallComponent cannonComp)
+    private void OnRemoveCannon(CannonBallComponent cannonComp)
     {
         cannonComp.gameObject.SetActive(false);
         cannonComp.rig.velocity = Vector3.zero;

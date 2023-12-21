@@ -15,7 +15,7 @@ public class GameSystem
         gameEvent.resetGame += ResetGame;
     }
 
-    void Init()
+    private void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         gameState.pauseButton.onClick.AddListener(ShowPauseScreen);
@@ -50,12 +50,12 @@ public class GameSystem
         gameState.timeText.SetText(timeText);
     }
 
-    void ShowPauseScreen()
+    private void ShowPauseScreen()
     {
         gameEvent.pauseGame?.Invoke();
     }
 
-    void QuitGame()
+    private void QuitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

@@ -22,13 +22,13 @@ public class TitleScreen : BaseScreen
         this.gameObject.SetActive(false);
     }
 
-    void StartGame()
+    private void StartGame()
     {
         gameState.gameStatus = GameStatus.IsPlaying;
         gameEvent.startGame?.Invoke();
     }
 
-    void ExitGame()
+    private void ExitGame()
     {
         gameEvent.exitGame?.Invoke();
     }

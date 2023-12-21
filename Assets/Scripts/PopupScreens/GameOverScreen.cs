@@ -20,7 +20,7 @@ public class GameOverScreen : BaseScreen
         this.gameObject.SetActive(false);
     }
     
-    void ShowResultScreen()
+    private void ShowResultScreen()
     {
         gameEvent.showResult?.Invoke();
     }

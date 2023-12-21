@@ -22,7 +22,7 @@ public class CannonBallSystem
         gameEvent.playerAttack += BallGene;
     }
 
-    void Init()
+    private void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         cannonPool = new CannonPool(gameState, gameEvent);
@@ -49,7 +49,7 @@ public class CannonBallSystem
             GameObject.Destroy(cannonBall.gameObject);
         }
     }
-    void BallManage()
+    private void BallManage()
     {
         int count = gameState.cannonBalls.Count;
         if (count == 0) return;
@@ -67,7 +67,7 @@ public class CannonBallSystem
         }
     }
 
-    void BallGene()
+    private void BallGene()
     {
         GameObject cannonBall = cannonPool.OnGeneCannon(gameState.cannonBallPrefab);
         cannonBall.SetActive(true);
@@ -80,7 +80,7 @@ public class CannonBallSystem
         ballRig.AddForce(gameState.cannonMuzzle.transform.forward * playerComp.cannonSpeed);
     }
 
-    void CollisionDetect(CannonBallComponent cannonComp)
+    private void CollisionDetect(CannonBallComponent cannonComp)
     {
         RaycastHit hit;
         Debug.DrawRay(cannonComp.transform.position, cannonComp.transform.forward, Color.green);

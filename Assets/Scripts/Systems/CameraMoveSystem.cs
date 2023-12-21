@@ -18,7 +18,7 @@ public class CameraMoveSystem
         gameEvent.resetGame += ResetGame;
     }
 
-    void Init()
+    private void Init()
     {
         camera = gameState.camera;
         playerComponent = gameState.player.GetComponent<PlayerComponent>();
@@ -37,16 +37,9 @@ public class CameraMoveSystem
         pos = camera.transform.position;
     }
 
-    void MoveCamera()
+    private void MoveCamera()
     {
-        float ver = gameState.inputMove.Vertical;
-        float hor = gameState.inputMove.Horizontal;
-
-        pos += camera.transform.forward * ver * playerComponent.moveSpeed * Time.deltaTime;
-        pos += camera.transform.right * hor * playerComponent.moveSpeed * Time.deltaTime;
-
-        pos.x = Mathf.Clamp(pos.x, -1840, 1840);
-        pos.z = Mathf.Clamp(pos.z, -1840, 1840);
+        pos = new Vector3(gameState.player.transform.position.x, 0, gameState.player.transform.position.z);
 
         camera.transform.position = pos;
     }

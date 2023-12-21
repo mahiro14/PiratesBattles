@@ -16,7 +16,7 @@ public class PlayerSystem
         gameEvent.showTitle += ResetPlayer;
     }
 
-    void Init()
+    private void Init()
     {
         gameEvent.enemyAttack += UpdatePlayerHp;
         gameEvent.getXp += UpdatePlayerXp;
@@ -32,7 +32,7 @@ public class PlayerSystem
         GameObject.Destroy(gameState.player);
     }
 
-    void ResetPlayer()
+    private void ResetPlayer()
     {
         // if (gameState.player != null) gameState.
         GameObject player = GameObject.Instantiate(gameState.shipPrefab, gameState.playerBasePos, Quaternion.identity);
@@ -63,7 +63,7 @@ public class PlayerSystem
         gameState.scoreText.SetText(playerComp.score.ToString());
     }
 
-    void UpdatePlayerHp(EnemyBaseComponent enemyComp)
+    private void UpdatePlayerHp(EnemyBaseComponent enemyComp)
     {
         playerComp.hp -= enemyComp.attack;
         if (playerComp.hp <= 0)
@@ -74,7 +74,7 @@ public class PlayerSystem
         gameState.hpText.SetText(playerComp.hp + "/" +playerComp.maxHp);
     }
 
-    void UpdatePlayerXp(EnemyBaseComponent enemyComp)
+    private void UpdatePlayerXp(EnemyBaseComponent enemyComp)
     {
         playerComp.xp += enemyComp.dropXp;
         if (playerComp.maxXp <= playerComp.xp)
@@ -91,7 +91,7 @@ public class PlayerSystem
         playerComp.xpText.SetText(playerComp.xp + "/" +playerComp.maxXp);
     }
 
-    void UpdateScoreText(EnemyBaseComponent enemyComp)
+    private void UpdateScoreText(EnemyBaseComponent enemyComp)
     {
         playerComp.score += enemyComp.score;
         gameState.scoreText.SetText(playerComp.score.ToString());

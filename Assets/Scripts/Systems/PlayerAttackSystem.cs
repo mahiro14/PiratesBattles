@@ -13,7 +13,7 @@ public class PlayerAttackSystem
         gameEvent.startGame += Init;
     }
 
-    void Init()
+    private void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         gameState.cannonMuzzle = playerComp.muzzle;
@@ -25,7 +25,7 @@ public class PlayerAttackSystem
         ShootCannon();
     }
 
-    void ShootCannon()
+    private void ShootCannon()
     {
         if ( playerComp.attackTimer < playerComp.coolTime )
         {

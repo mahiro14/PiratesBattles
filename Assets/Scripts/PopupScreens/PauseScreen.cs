@@ -8,6 +8,9 @@ public class PauseScreen : BaseScreen
     GameState gameState;
     GameEvent gameEvent;
     [SerializeField] Button backGameButton;
+    [SerializeField] Button titleButton;
+    [SerializeField] Button exitGameButton;
+
     public override void Init(GameState _gameState, GameEvent _gameEvent)
     {
         gameState = _gameState;
@@ -16,6 +19,8 @@ public class PauseScreen : BaseScreen
         gameEvent.pauseGame += OnShow;
 
         backGameButton.onClick.AddListener(OnClickBackGameButton);
+        exitGameButton.onClick.AddListener(ExitGame);
+        titleButton.onClick.AddListener(ShowTitleScreen);
         this.gameObject.SetActive(false);
     }
     public override void OnShow()
@@ -25,9 +30,21 @@ public class PauseScreen : BaseScreen
         gameState.gameStatus = GameStatus.PauseGame;
     }
 
-    void OnClickBackGameButton()
+    private void OnClickBackGameButton()
     {
         gameState.gameStatus = GameStatus.IsPlaying;
         OnHide();
+    }
+
+    private void ExitGame()
+    {
+        gameEvent.exitGame?.Invoke();
+    }
+
+    private void ShowTitleScreen()
+    {
+        base.OnHide();
+        gameEvent.resetGame?.Invoke();
+        gameEvent.showTitle?.Invoke();
     }
 }

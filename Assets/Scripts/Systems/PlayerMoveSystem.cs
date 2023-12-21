@@ -16,7 +16,7 @@ public class PlayerMoveSystem
         gameEvent.startGame += Init;
     }
 
-    void Init()
+    private void Init()
     {
         playerObj = gameState.player;
         playerComp = gameState.player.GetComponent<PlayerComponent>();
@@ -35,7 +35,7 @@ public class PlayerMoveSystem
         MovePlayer();
     }
 
-    void MovePlayer()
+    private void MovePlayer()
     {
         float ver = gameState.inputMove.Vertical;
         float hor = gameState.inputMove.Horizontal;

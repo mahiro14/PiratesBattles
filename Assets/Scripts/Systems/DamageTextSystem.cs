@@ -16,7 +16,7 @@ public class DamageTextSystem
         gameEvent.geneText += GeneText;
     }
 
-    void Init()
+    private void Init()
     {
         damageTextPool = new DamageTextPool(gameState, gameEvent);
     }
@@ -40,7 +40,7 @@ public class DamageTextSystem
     }
 
 
-    void UpdateTexts()
+    private void UpdateTexts()
     {
         int count = gameState.damageTexts.Count;
         if (count == 0) return;
@@ -56,7 +56,7 @@ public class DamageTextSystem
         }
     }
 
-    void GeneText(GameObject attacker, GameObject target)
+    private void GeneText(GameObject attacker, GameObject target)
     {
         GameObject damageText = damageTextPool.ShowText(gameState.prefabDamageText, target);
         DamageTextComponent damageTextComp = damageText.GetComponent<DamageTextComponent>();
@@ -78,7 +78,7 @@ public class DamageTextSystem
         gameState.damageTexts.Add(damageTextComp);
     }
 
-    void RemoveText(DamageTextComponent damageTextComp)
+    private void RemoveText(DamageTextComponent damageTextComp)
     {
         damageTextComp.timer = 0;
         gameEvent.removeText(damageTextComp);

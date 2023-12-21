@@ -17,9 +17,9 @@ public class EffectSystem
         gameEvent.geneEffect += GeneEffect;
     }
 
-    void Init()
+    private void Init()
     {
-        damageEffectPool = new DamageEffectPool(gameState, gameEvent);
+        // damageEffectPool = new DamageEffectPool(gameState, gameEvent);
     }
 
     public void OnUpdate()
@@ -54,7 +54,7 @@ public class EffectSystem
     //     }
     // }
 
-    void GeneEffect(GameObject target)
+    private void GeneEffect(GameObject target)
     {
         Debug.Log("GeneEffect");
         GameObject damageEffect = GameObject.Instantiate(gameState.damageEffectPrefab, target.transform.position, Quaternion.identity, gameState.parentEffects);

@@ -7,6 +7,7 @@ public class GameEvent : MonoBehaviour
     public Action startGame;
     public Action exitGame;
     public Action pauseGame;
+    public Action retryGame;
     public Action resetGame;
     public Action showResult;
     public Action gameOver;

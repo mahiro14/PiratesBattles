@@ -20,13 +20,13 @@ public class EnemyPool
         gameEvent.startGame += Init;
     }
 
-    void Init()
+    private void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
         pool.Clear();
     }
 
-    void OnRemoveEnemy(EnemyBaseComponent enemyComp)
+    private void OnRemoveEnemy(EnemyBaseComponent enemyComp)
     {
         enemyComp.gameObject.SetActive(false);
         gameState.activeEnemies.Remove(enemyComp);
@@ -109,7 +109,7 @@ public class EnemyPool
         return addVec; 
     }
 
-    void ResetEnemy(GameObject enemy)
+    private void ResetEnemy(GameObject enemy)
     {
         // 初期値セット
         enemyComp = enemy.GetComponent<EnemyBaseComponent>();

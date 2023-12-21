@@ -14,7 +14,7 @@ public class EnemyDamageSystem
         gameEvent.cannonHitEnemy += cannonHitEnemy;
     }
 
-    void Init()
+    private void Init()
     {
         playerComp = gameState.player.GetComponent<PlayerComponent>();
     }
@@ -24,7 +24,7 @@ public class EnemyDamageSystem
         
     }
 
-    void cannonHitEnemy(EnemyBaseComponent enemyComp)
+    private void cannonHitEnemy(EnemyBaseComponent enemyComp)
     {
         enemyComp.hp -= playerComp.attack;
         if (enemyComp.hp <= 0)
