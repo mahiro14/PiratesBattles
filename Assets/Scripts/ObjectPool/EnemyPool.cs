@@ -73,10 +73,38 @@ public class EnemyPool
     }
 
     // 画面外の近い位置を生成
-    Vector3 RandomPos()
+    private Vector3 RandomPos()
     {
-        float hor = Mathf.Clamp(Random.Range(-36, 36), -30, 30);
-        float ver = Mathf.Clamp(Random.Range(-36, 36), -30, 30);
+        float hor = 0;
+        float ver = 0;
+        float rnd = Random.Range(1,4);
+        switch (rnd)
+        {
+            case 1:
+                hor = 30 + Random.Range(1,6);
+                break;
+            case 2:
+                hor = -30 - Random.Range(1,6);
+                break;
+            case 3:
+                hor = Random.Range(-30,30);
+                break;
+        }
+
+        if (rnd == 3) rnd = Random.Range(1,3);
+        else rnd = Random.Range(1,4);
+        switch (rnd)
+        {
+            case 1:
+                ver = 30 + Random.Range(1,6);
+                break;
+            case 2:
+                ver = -30 - Random.Range(1,6);
+                break;
+            case 3:
+                ver = Random.Range(-30,30);
+                break;
+        }
         Vector3 addVec = new Vector3(hor, 0, ver);
         return addVec; 
     }

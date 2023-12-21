@@ -5,6 +5,7 @@ public class GameEvent : MonoBehaviour
 {
     public Action showTitle;
     public Action startGame;
+    public Action exitGame;
     public Action pauseGame;
     public Action resetGame;
     public Action showResult;

@@ -206,7 +206,7 @@ MonoBehaviour:
   score: 20
   moveSpeed: 3
   rig: {fileID: -5804580219914498494}
-  attack: 2
+  attack: 4
   attackBar: {fileID: 5749650832866083114}
   attackTimer: 0
   coolTime: 3

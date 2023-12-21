@@ -11,6 +11,7 @@ public class GameSystem
         gameEvent = _gameEvent;
 
         gameEvent.startGame += Init;
+        gameEvent.exitGame += QuitGame;
     }
 
     void Init()
@@ -44,5 +45,14 @@ public class GameSystem
     void ShowPauseScreen()
     {
         gameEvent.pauseGame?.Invoke();
+    }
+
+    void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
